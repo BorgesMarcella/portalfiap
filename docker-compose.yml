@@ -1,4 +1,6 @@
-web:
+version: "3"
+services:
+  web:
   image: nginx:stable
    ports:
    - "8080:80"
