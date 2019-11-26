@@ -1,7 +1,10 @@
 version: "3"
 services:
   web:
-  image: nginx:stable
-   ports:
-   - "85:80"
-  
+    image: nginx:stable
+    ports:
+    - "85:80"
+    environment:
+    - NGINX_HOST=localhost
+    - NGINX_PORT=80
+    command: /bin/bash -c "envsubst < /etc/nginx/conf.d/mysite.template > /etc/nginx/conf.d/default.conf && exec nginx -g 'daemon off;'"
